@@ -14,23 +14,24 @@
         tools:layout_editor_absoluteX="80dp"
         tools:layout_editor_absoluteY="177dp" />
 
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="logoutUser"
         android:text="Logout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintEnd_toEndOf="parent" />
     <Button
         android:id="@+id/btnScan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="42dp" />
+        android:onClick="logoutUser"
+        android:text="Scan"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

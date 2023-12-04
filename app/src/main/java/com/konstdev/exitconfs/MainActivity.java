@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     private void goscan(){
-        Intent intent = new Intent(getApplicationContext(), QRCodeScannerActivity.class);
+        Intent intent = new Intent(getApplicationContext(), ScanActivity.class);
         startActivity(intent);
     }
 

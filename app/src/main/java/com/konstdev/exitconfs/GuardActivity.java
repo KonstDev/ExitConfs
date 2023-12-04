@@ -32,15 +32,14 @@ public class GuardActivity extends AppCompatActivity {
         });
     }
 
-    public void goScan(){
-        Intent intent = new Intent(getApplicationContext(), QRCodeScannerActivity.class);
-        startActivity(intent);
-    }
     public void logoutUser() {
         mAuth.signOut(); // Выход пользователя из Firebase
         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(intent);
-        // Здесь вы можете выполнить дополнительные действия, если необходимо, после выхода
-        finish(); // Закрыть текущую активность
+    }
+
+    public void goScan(){
+        Intent intent= new Intent(getApplicationContext(), ScanActivity.class);
+        startActivity(intent);
     }
 }

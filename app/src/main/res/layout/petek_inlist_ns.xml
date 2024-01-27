@@ -4,12 +4,16 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp">
-
     <TextView
         android:id="@+id/textViewNames"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Names: " />
+    <TextView
+        android:id="@+id/textViewDepartureDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Departure Date: " />
 
     <TextView
         android:id="@+id/textViewDepartureTime"
@@ -17,6 +21,11 @@
         android:layout_height="wrap_content"
         android:text="Departure Time: " />
 
+    <TextView
+        android:id="@+id/textViewReturnDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Return Date: " />
 
     <TextView
         android:id="@+id/textViewReturnTime"
@@ -34,6 +43,6 @@
         android:id="@+id/textViewStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Status: " />
+        android:text="Confirmed: " />
 
 </LinearLayout>

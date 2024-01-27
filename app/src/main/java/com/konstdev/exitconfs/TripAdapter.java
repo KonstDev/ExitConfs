@@ -29,11 +29,15 @@ public class TripAdapter extends ArrayAdapter<Trip> {
         TextView textViewReturnTime = convertView.findViewById(R.id.textViewReturnTime);
         TextView textViewDestination = convertView.findViewById(R.id.textViewDestination);
         TextView textViewStatus = convertView.findViewById(R.id.textViewStatus);
+        TextView textViewDepartureDate = convertView.findViewById(R.id.textViewDepartureDate);
+        TextView textViewReturnDate = convertView.findViewById(R.id.textViewReturnDate);
 
-        textViewDepartureTime.setText("Departure Time: " + trip.getDepartureTime());
+        textViewDepartureTime.setText("Departure Time: " + trip.getExitTime());
         textViewReturnTime.setText("Return Time: " + trip.getReturnTime());
-        textViewDestination.setText("Destination: " + trip.getDestination());
-        textViewStatus.setText("Status: " + trip.getStatus());
+        textViewDestination.setText("Destination: " + trip.getGoingTo());
+        textViewStatus.setText("Confirmed: " + trip.isConfirmed());
+        textViewDepartureDate.setText("Departure Date: " + trip.getExitDate());
+        textViewReturnDate.setText("Return Date: " + trip.getReturnDate());
 
         return convertView;
     }

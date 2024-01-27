@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d(TAG, "signInWithEmail:success");
-                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    //FirebaseUser user = mAuth.getCurrentUser();
                                     getStatus();
                                 } else {
                                     // If sign in fails, display a message to the user.
@@ -97,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
 
-
+    //Here we get the type of the account
     private void getStatus() {
         String path = "users/" + mAuth.getUid() + "/mode";
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(path);

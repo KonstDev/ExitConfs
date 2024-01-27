@@ -1,0 +1,87 @@
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/ivQRR"
+        android:layout_width="match_parent"
+        android:layout_height="741dp"
+        android:src="@drawable/qrcode"
+        app:layout_constraintBaseline_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="159dp" />
+    <TextView
+        android:id="@+id/tvPlace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Place: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="42dp" />
+    <TextView
+        android:id="@+id/tvExitTime"
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toEndOf="@+id/tvPlace"
+        app:layout_constraintTop_toBottomOf="@+id/tvPlace"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Exit Time: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="42dp" />
+    <TextView
+        android:id="@+id/tvReturnTime"
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toEndOf="@+id/tvExitTime"
+        app:layout_constraintTop_toBottomOf="@+id/tvExitTime"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Return Time: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="42dp" />
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toEndOf="@+id/tvReturnTime"
+        app:layout_constraintTop_toBottomOf="@+id/tvReturnTime"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Status: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="42dp" />
+    <TextView
+        android:id="@+id/tvNames"
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toEndOf="@+id/tvStatus"
+        app:layout_constraintTop_toBottomOf="@+id/tvStatus"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Names: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="42dp" />
+
+    <Button
+        android:id="@+id/btnActivate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Activate Trip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvStatus" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

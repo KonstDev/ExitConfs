@@ -1,0 +1,62 @@
+<!-- fragment_bottom_sheet.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Multi-selection of users -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/userRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Date of departure -->
+    <EditText
+        android:id="@+id/startDateEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Departure Date"
+        android:inputType="text"/>
+
+    <!-- Time of departure -->
+    <EditText
+        android:id="@+id/startTimeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Departure Time"
+        android:inputType="text"/>
+
+    <!-- Date of return -->
+    <EditText
+        android:id="@+id/endDateEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Return Date"
+        android:inputType="text"/>
+
+    <!-- Time of return -->
+    <EditText
+        android:id="@+id/endTimeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Return Time"
+        android:inputType="text"/>
+
+    <!-- Destination input -->
+    <EditText
+        android:id="@+id/destinationEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Destination"
+        android:inputType="text"/>
+
+    <!-- Create permission button -->
+    <Button
+        android:id="@+id/createPermissionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Permission"/>
+</LinearLayout>

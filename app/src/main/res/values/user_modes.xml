@@ -1,0 +1,6 @@
+<resources>
+    <string-array name="user_modes">
+        <item>guard</item>
+        <item>madrich</item>
+    </string-array>
+</resources>

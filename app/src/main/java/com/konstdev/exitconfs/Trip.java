@@ -53,21 +53,17 @@ public class Trip implements Serializable {
             students_ids, students_names, confirmations;
 
 
-    public Trip(String id,boolean confirmed, String exitDate, String exitTime, String goingTo,
-                          String group, String madrich_name, String returnDate,
-                          String returnTime, String students_ids, String students_names, String confirmations) {
+    public Trip(String id,boolean confirmed, String exitDate, String exitTime, String goingTo, String returnDate,
+                          String returnTime, String students_ids, String students_names) {
         this.id = id;
         this.confirmed = confirmed;
         this.exitDate = exitDate;
         this.exitTime = exitTime;
         this.goingTo = goingTo;
-        this.group = group;
-        this.madrich_name = madrich_name;
         this.returnDate = returnDate;
         this.returnTime = returnTime;
         this.students_ids = students_ids;
         this.students_names = students_names;
-        this.confirmations = confirmations;
     }
 
     public Trip(){

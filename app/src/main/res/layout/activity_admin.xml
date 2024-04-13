@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/edtUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter User Name" />
+
+    <Spinner
+        android:id="@+id/spinnerUserMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtUserName"
+        android:entries="@array/user_modes" />
+
+    <Button
+        android:id="@+id/btnCreateUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerUserMode"
+        android:text="Create User" />
+
+    <!-- Кнопка "Logout" справа от кнопки "Create User" -->
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:layout_toEndOf="@id/btnCreateUser"
+        android:layout_alignBottom="@id/btnCreateUser" />
 
     <ListView
-        android:id="@+id/simpleListView"
-        android:layout_width="fill_parent"
+        android:id="@+id/userListView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:divider="@color/material_blue_grey_800"
-        android:dividerHeight="2dp"
-        android:footerDividersEnabled="false" />
-</LinearLayout>
+        android:layout_below="@id/btnCreateUser"
+        android:layout_marginTop="10dp" />
+
+</RelativeLayout>

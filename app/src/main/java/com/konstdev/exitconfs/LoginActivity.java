@@ -113,7 +113,10 @@ public class LoginActivity extends AppCompatActivity {
                         goStudent();
                     } else if ("guard".equals(stTemp)) {
                         goGuards();
-                    } else {
+                    } else if ("admin".equals(stTemp)){
+                        goAdmin();
+                    }
+                    else {
                         goMadrichs();
                         Log.d("AUTHmk", "ya pososal, no:" + stTemp);
                     }
@@ -131,6 +134,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private void goStudent(){
         Intent intent = new Intent(getApplicationContext(), StudentActivity.class);
+        startActivity(intent);
+    }
+
+    private void goAdmin(){
+        Intent intent = new Intent(getApplicationContext(), AdminActivity.class);
         startActivity(intent);
     }
 

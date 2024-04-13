@@ -104,8 +104,7 @@ public class CreateBS extends BottomSheetDialogFragment {
             // Создание уникального id для Trip
             String tripId = UUID.randomUUID().toString();
 
-            Trip newTrip = new Trip(tripId, false, startDate, startTime, destination,
-                    "group", "madrich_name", endDate, endTime,
+            Trip newTrip = new Trip(tripId, false, startDate, startTime, destination, endDate, endTime,
                     getIds(selectedUsers), getNames(selectedUsers));
 
             saveTripToFirebase(newTrip);

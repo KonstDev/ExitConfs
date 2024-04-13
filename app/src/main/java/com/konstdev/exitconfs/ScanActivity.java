@@ -77,13 +77,11 @@ public class ScanActivity extends AppCompatActivity {
                             Log.d("FireBAASE", "accessed " + exitDate);
                             String exitTime = dataSnapshot.child("exitTime").getValue(String.class);
                             String goingTo = dataSnapshot.child("goingTo").getValue(String.class);
-                            String group = dataSnapshot.child("group").getValue(String.class);
-                            String madrich_name = dataSnapshot.child("madrich_name").getValue(String.class);
                             String returnDate = dataSnapshot.child("returnDate").getValue(String.class);
                             String returnTime = dataSnapshot.child("returnTime").getValue(String.class);
                             String student_names = dataSnapshot.child("student_names").getValue(String.class);
                             String students_ids = dataSnapshot.child("student_ids").getValue(String.class);
-                            Trip trip = new Trip (scannedData, confirmed, exitDate, exitTime, goingTo, group, madrich_name, returnDate, returnTime, students_ids, student_names);
+                            Trip trip = new Trip (scannedData, confirmed, exitDate, exitTime, goingTo, returnDate, returnTime, students_ids, student_names);
                             Intent intent = new Intent(ScanActivity.this, GuardActivity.class);
                             intent.putExtra("trip", trip);
                             startActivity(intent);

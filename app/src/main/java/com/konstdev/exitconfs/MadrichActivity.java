@@ -40,6 +40,7 @@ public class MadrichActivity extends AppCompatActivity {
 
         Button btnLogout = findViewById(R.id.btnLogout);
         Button btnCreate = findViewById(R.id.btnCreate);
+        Button btnCreateUser = findViewById(R.id.btnCreateUser);
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +54,14 @@ public class MadrichActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Открываем bottomSheet при нажатии на кнопку btnCreate
                 openBottomSheet();
+            }
+        });
+
+        btnCreateUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), CreateStudentActivity.class);
+                startActivity(intent);
             }
         });
         ArrayList<Trip> tripList = new ArrayList<>();

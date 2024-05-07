@@ -16,6 +16,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -108,33 +109,57 @@ public class AdminActivity extends AppCompatActivity {
     private void createUser() {
         final String userName = edtUserName.getText().toString().trim();
         final String userMode = spinnerUserMode.getSelectedItem().toString();
-
+        String newPassword = generateRandomPassword();
         if (!userName.isEmpty()) {
-            final String userId = mDatabase.push().getKey();
-            if (userId != null) {
-                User newUser;
-                if (userMode.equals("guard") || userMode.equals("madrich")) {
-                    newUser = new User(userId, userName, userMode);
-                } else {
-                    newUser = new User(userId, userName);
-                }
+            // Создание пользователя в Firebase Authentication
+            mAuth.createUserWithEmailAndPassword(userName, newPassword)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                            if (firebaseUser != null) {
+                                // Добавляем слушатель, чтобы быть уверенными, что пользователь успешно зарегистрирован
+                                firebaseUser.reload().addOnCompleteListener(reloadTask -> {
+                                    if (reloadTask.isSuccessful()) {
+                                        String userId = firebaseUser.getUid();
+                                        // Создание объекта пользователя
+                                        User newUser;
+                                        if (userMode.equals("guard") || userMode.equals("madrich")) {
+                                            newUser = new User(userId, userName, userMode);
+                                        } else {
+                                            newUser = new User(userId, userName);
+                                        }
+                                        // Сохранение данных пользователя в базе данных
+                                        mDatabase.child("users").child(userId).setValue(newUser)
+                                                .addOnCompleteListener(databaseTask -> {
+                                                    if (databaseTask.isSuccessful()) {
+                                                        // Вывод данных о пользователе и пароле в диалоговом окне
+                                                        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                                                        builder.setTitle("New User Created");
+                                                        builder.setMessage("User ID: " + userId + "\nPassword: " + newPassword);
+                                                        builder.setPositiveButton("OK", null);
+                                                        builder.show();
 
-                mDatabase.child(userId).setValue(newUser);
-
-                // Генерация случайного пароля
-                final String generatedPassword = generateRandomPassword();
-
-                // Вывод данных о пользователе и пароле в диалоговом окне
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("New User Created");
-                builder.setMessage("User ID: " + userId + "\nPassword: " + generatedPassword);
-                builder.setPositiveButton("OK", null);
-                builder.show();
-
-                edtUserName.setText("");
-            }
+                                                        edtUserName.setText("");
+                                                    } else {
+                                                        // Ошибка при сохранении данных в базе данных
+                                                        Toast.makeText(this, "Failed to save user data", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
+                                    } else {
+                                        // Ошибка при обновлении данных о пользователе
+                                        Toast.makeText(this, "Failed to reload user data", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
+                        } else {
+                            // Ошибка при создании пользователя
+                            Toast.makeText(this, "Failed to create user", Toast.LENGTH_SHORT).show();
+                        }
+                    });
         }
     }
+
+
 
     public void logoutUser() {
         mAuth.signOut(); // выход пользователя из Firebase
